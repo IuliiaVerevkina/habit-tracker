@@ -47,9 +47,7 @@ body {
 .menu__active img {
   filter: brightness(0) invert(1);
 }
-.menu__item > img {
-  margin-left: -3px;
-}
+
 .menu__add {
   border: 1px solid #cad5ff;
   background: none;
@@ -187,9 +185,6 @@ input::placeholder {
   .menu__list {
     gap: 15px;
   }
-	.menu__item > img {
-    margin-left: 0px;
-}
   h1 {
     font-size: 20px;
     line-height: 33px;
