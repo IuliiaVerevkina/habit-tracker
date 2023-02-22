@@ -22,8 +22,8 @@ function loadData() {
 	}
 
 	// render
-	function rerenderMenu(activHabbit) {
-		if(!activHabbit) {
+	function rerenderMenu(activeHabbit) {
+		if(!activeHabbit) {
 			return;
 		}
 		for(const habbit of habbits) {
@@ -32,17 +32,18 @@ function loadData() {
 				const element = document.createElement('button');
 				element.setAttribute("data-menu-habbit-id", habbit.id);
 				element.classList.add("menu__item");
+				element.addEventListener('click', () => rerender(habbit.id));
 				element.innerHTML = `<img class="img-fluid" src="./img/${habbit.icon}.svg" alt="${habbit.name}">`;
-				if (activHabbit.id === habbit.id) {
+				if (activeHabbit.id === habbit.id) {
           element.classList.add("menu__active");
         }
 				page.menu.appendChild(element)
 				continue;
 			}
-			if(activHabbit.id === habbit.id) {
+			if(activeHabbit.id === habbit.id) {
 				existed.classList.add("menu__active");
 			} else {
-				existed.classList.add("menu__active");
+				existed.classList.remove("menu__active");
 			}
 		}
 	}
