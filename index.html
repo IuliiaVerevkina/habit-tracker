@@ -16,31 +16,33 @@
 </head>
 
 <body>
-	<section class="app">
-		<div class="row text-center">
-			<div class="col-xl-2 panel">
-				<img class="mb-5" src="./img/logo.svg" alt="logo Habbit App">
+	<section class="app container-fluid">
+		<div class="row">
+			<div class="col-2 panel">
+				<img class="img-fluid logo" src="./img/logo.svg" alt="logo Habbit App">
 				<nav class="menu align-items-center">
-					<div class="menu__list d-flex flex-column align-items-center">
+					<div class="menu__list">
 						<button class="menu__item btn menu__active">
-							<img src="./img/sport.svg" alt="sport">
+							<img class="img-fluid" src="./img/sport.svg" alt="sport">
 						</button>
 						<button class="menu__item btn">
-							<img src="./img/water.svg" alt="sport">
+							<img class="img-fluid" src="./img/water.svg" alt="sport">
 						</button>
 						<button class="menu__item btn">
-							<img src="./img/food.svg" alt="sport">
+							<img class="img-fluid" src="./img/food.svg" alt="sport">
 						</button>
 					</div>
 					<button class="menu__add btn">
-						<img src="./img/add.svg" alt="add button">
+						<img class="img-fluid" src="./img/add.svg" alt="add button">
 					</button>
 				</nav>
 			</div>
-			<div class="col-xl-10 content">
-				<header class="d-flex justify-content-between align-items-center">
-					<h1>Sport</h1>
-					<div class="progress__in_bar">
+			<div class="col-10 content">
+				<header class="">
+					<div class="row">
+						<div class="col-md-8 col-12"><h1>Sport</h1></div>
+						<div class="col-md-4 col-12">
+							<div class="progress__in_bar">
 						<div class="progress__text">
 							<div class="progress__name">Progress</div>
 							<div class="progress__percent">80%</div>
@@ -49,22 +51,26 @@
 							<div class="progress__cover_bar"></div>
 						</div>
 					</div>
+						</div>
+					</div>
+					
+					
 				</header>
 				<main>
 					<div>
 						<div class="row habbit justify-content-between">
-							<div class="col-xl-2 habbit__day">День 1</div>
-							<div class="col-xl-8 habbit_commit text-start">The first set is always the hardest.</div>
-							<div class="col-xl-2 d-flex justify-content-end">
+							<div class="col-xl-2 col-lg-2 col-12 habbit__day">День 1</div>
+							<div class="col-xl-8 col-lg-8 col-9 habbit_commit text-start">The first set is always the hardest.</div>
+							<div class="col-xl-2 col-lg-2 col-3 d-flex justify-content-end">
 								<button class="btn habbit__delete">
-									<img src="./img/delete.svg" alt="delete">
+									<img class="img-fluid" src="./img/delete.svg" alt="delete">
 								</button>
 							</div>
 						</div>
 					</div>
 					<div class="row habbit justify-content-between">
-						<div class="col-xl-2 habbit__day">День 2</div>
-						<div class="col-xl-10 text-start">
+						<div class="col-xl-2 col-lg-2 col-12 habbit__day">День 2</div>
+						<div class="col-xl-10 col-lg-10 col-12 text-start">
 							<form action="" class="habbit__form">
 								<input type="text" placeholder="Comment" class="input__icon">
 								<img class="input__icon_img" src="./img/comment_img.svg" alt="">
