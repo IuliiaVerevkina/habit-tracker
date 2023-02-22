@@ -1,50 +1,165 @@
 * {
   box-sizing: border-box;
 }
+:root {
+    --colorWhite: #FBFAFF;;
+    --colorGrey: #768396;
+		--colorBlue: #232360;
+		--colorBlueHovar: #6a6afb;;
+}
 body {
   font-family: "Comfortaa", cursive;
   margin: 0;
   background-color: #f3f6fd;
+  font-weight: 400;
 }
 .panel {
-  background-color: #fbfaff;
+  background-color: var(--colorWhite);
   padding: 40px;
 }
-.menu,
 .menu__list {
   gap: 25px;
 }
 .menu__item {
-  background: #ffffff;
+  background: var(--colorWhite);
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
   border-radius: 14px;
   width: 45px;
   height: 45px;
 }
 .menu__item:hover {
-  background: #6a6afb;
+  background: var(--colorBlueHovar);
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
 }
-.menu__item:hover img {
+.menu__item:hover img,
+.habbit__delete:hover img {
   filter: brightness(0) invert(1);
 }
-.menu__active{
-	background: #5051F9;
+.menu__active {
+  background: #5051f9;
 }
-.menu__active img{
+.menu__active img {
   filter: brightness(0) invert(1);
 }
 .menu__item > img {
   margin-left: -3px;
 }
 .menu__add {
-  border: 1px solid #cad5ff;
+  border: 1px solid #CAD5FF;
   background: none;
   border-radius: 14px;
   width: 45px;
   height: 45px;
+  margin-top: 25px;
 }
 .menu__add:hover {
-  background: #6a6afb;
+  background: var(--colorBlueHovar);
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+}
+.content {
+  padding: 50px;
+}
+h1 {
+  font-size: 30px;
+  line-height: 33px;
+}
+.progress__in_bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 235px;
+}
+.progress__text {
+  display: flex;
+  justify-content: space-between;
+}
+.progress__name {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--colorBlue);
+}
+.progress__percent {
+  font-size: 12px;
+  line-height: 13px;
+  color: var(--colorGrey);
+}
+.progress__bar {
+  width: 100%;
+  background: var(--colorWhite);
+  border-radius: 4px;
+  height: 5px;
+  position: relative;
+}
+.progress__cover_bar {
+  position: absolute;
+  background: #5051f9;
+  border-radius: 4px;
+  width: 50%;
+  height: 5px;
+}
+main {
+  margin-top: 30px;
+}
+.habbit {
+  background: var(--colorWhite);
+  border-radius: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.habbit__day {
+  background: var(--colorWhite);
+  border-right: 1px solid #e7ebfb;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  padding: 20px 40px;
+}
+.habbit_commit {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.habbit__delete {
+  border: 1px solid #cad5ff;
+  background: none;
+  border-radius: 14px;
+}
+.habbit__delete:hover {
+  background: var(--colorBlueHovar);
+  box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+}
+.habbit__form {
+  display: flex;
+  gap: 14px;
+  position: relative;
+}
+input {
+  border: 1px solid #e7ebfb;
+  border-radius: 9px;
+  padding: 12px 20px 12px 40px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 16px;
+}
+input::placeholder {
+	  color: var(--colorGrey);
+}
+.input__icon_img {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.save__form {
+  background: #EDECFE;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 14px;
+  color: #5051f9;
+  padding: 12px 30px;
+}
+.save__form:hover {
+  background: var(--colorBlueHovar);
+  box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
+  color: #ffffff;
 }
