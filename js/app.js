@@ -3,6 +3,12 @@
 let habbits = [];
 const HABBIT_KEY = 'HABBIT_KEY';
 
+// page
+
+const page = {
+  menu: document.querySelector(".menu__list"),
+};
+
 // utils
 function loadData() {
 	const habbitsString = localStorage.getItem(HABBIT_KEY);
@@ -15,7 +21,42 @@ function loadData() {
 		localStorage.setItem(HABBIT_KEY, JSON.stringify(habbits));
 	}
 
+	// render
+	function rerenderMenu(activHabbit) {
+		if(!activHabbit) {
+			return;
+		}
+		for(const habbit of habbits) {
+			const existed = document.querySelector(`[data-menu-habbit-id="${habbit.id}"]`);
+			if(!existed) {
+				const element = document.createElement('button');
+				element.setAttribute("data-menu-habbit-id", habbit.id);
+				element.classList.add("menu__item");
+				element.innerHTML = `<img class="img-fluid" src="./img/${habbit.icon}.svg" alt="${habbit.name}">`;
+				if (activHabbit.id === habbit.id) {
+          element.classList.add("menu__active");
+        }
+				page.menu.appendChild(element)
+				continue;
+			}
+			if(activHabbit.id === habbit.id) {
+				existed.classList.add("menu__active");
+			} else {
+				existed.classList.add("menu__active");
+			}
+		}
+	}
+
+	function rerender(activeHabbitId) {
+		const activeHabbit = habbits.find(habbit => habbit.id === activeHabbitId);
+		rerenderMenu(activeHabbit);
+	}
+
+	// init
 	(() => {
-		loadData();
-	})();
+    loadData();
+  })();
+  (() => {
+    rerender(habbits[0].id);
+  })();
 }
