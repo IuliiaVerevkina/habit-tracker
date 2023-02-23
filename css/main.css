@@ -98,7 +98,7 @@ h1 {
   position: absolute;
   background: #5051f9;
   border-radius: 4px;
-  width: 50%;
+  transition: all 0.5s;
   height: 5px;
 }
 main {
