@@ -7,6 +7,11 @@ const HABBIT_KEY = 'HABBIT_KEY';
 
 const page = {
   menu: document.querySelector(".menu__list"),
+  header: {
+    h1: document.querySelector(".h1"),
+    progressPercent: document.querySelector(".progress__percent"),
+    progressCoverBar: document.querySelector(".progress__cover_bar"),
+  },
 };
 
 // utils
@@ -49,9 +54,18 @@ function loadData() {
     }
   }
 
+  // renderHead 
+  function renderHead(activeHabbit) {
+    if (!activeHabbit) {
+      return;
+    }
+    page.header.h1.innerText = activeHabbit.name;
+  }
+
   function rerender(activeHabbitId) {
     const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
     rerenderMenu(activeHabbit);
+    renderHead(activeHabbit);
   }
 
 	// init
