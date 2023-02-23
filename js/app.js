@@ -86,8 +86,10 @@ function rerenderContent(activeHabbit) {
         activeHabbit.days[index].comment
       }</div>
 			<div class="col-xl-2 col-lg-2 col-12 d-flex justify-content-end">
-				<button class="btn habbit__delete">
-					<img class="img-fluid" src="./img/delete.svg" alt="delete day ${index + 1}">
+				<button class="btn habbit__delete" onclick="removeDay(${Number(index)})">
+					<img class="img-fluid" src="./img/delete.svg" alt="delete day ${
+            Number(index) + 1
+          }">
 				</button>
     `;
     page.content.daysContainer.appendChild(element);
@@ -126,6 +128,23 @@ function addDays(event) {
     return habbit;
   });
   form["comment"].value = "";
+  rerender(globalActiveHabbitId);
+  saveData();
+}
+
+// remove Day
+
+function removeDay(index) {
+  habbits = habbits.map((habbit) => {
+    if (habbit.id === globalActiveHabbitId) {
+      habbit.days.splice(index, 1);
+      return {
+        ...habbit,
+        days: habbit.days,
+      };
+    }
+    return habbit;
+  });
   rerender(globalActiveHabbitId);
   saveData();
 }
