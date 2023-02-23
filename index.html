@@ -22,7 +22,7 @@
 				<img class="img-fluid logo" src="./img/logo.svg" alt="logo Habbit App">
 				<nav class="menu align-items-center">
 					<div class="menu__list"></div>
-					<button class="menu__add btn">
+					<button type="button" class="btn menu__add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 						<img class="img-fluid" src="./img/add.svg" alt="add button">
 					</button>
 				</nav>
@@ -61,6 +61,41 @@
 			</div>
 		</div>
 	</section>
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog text-center">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h2 class="modal-title" id="staticBackdropLabel">New habbit</h2>
+					<div class="icon_label">Icon</div>
+					<div class="icon-select">
+						<button class="icon icon__active btn" onclick="setIcon(this, 'sport')">
+							<img src="/img/sport.svg" alt="sport">
+						</button>
+						<button class="icon btn" onclick="setIcon(this, 'water')">
+							<img src="/img/water.svg" alt="water">
+						</button>
+						<button class="icon btn" onclick="setIcon(this, 'food')">
+							<img src="/img/food.svg" alt="food">
+						</button>
+					</div>
+					<form class="modal__form" onsubmit="addHabbit(event)">
+						<input type="text" name="name" placeholder="Add name habbit" class="input__modal">
+						<input type="text" name="icon" placeholder="icon" hidden value="sport">
+						<input type="number" name="target" placeholder="Amount of days" class="input__modal">
+						<button class="btn save__form" type="submit" data-bs-dismiss="modal">Save</button>
+					</form>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Understood</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
 	<script src="./js/bootstrap.bundle.min.js"></script>
 	<script src="./js/app.js"></script>
 </body>

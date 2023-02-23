@@ -33,18 +33,22 @@ body {
   width: 45px;
   height: 45px;
 }
-.menu__item:hover {
+.menu__item:hover,
+.icon:hover {
   background: var(--colorBlueHovar);
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
 }
 .menu__item:hover img,
-.habbit__delete:hover img {
+.habbit__delete:hover img,
+.icon:hover img {
   filter: brightness(0) invert(1);
 }
-.menu__active {
+.menu__active,
+.icon__active {
   background: #5051f9;
 }
-.menu__active img {
+.menu__active img,
+.icon__active img {
   filter: brightness(0) invert(1);
 }
 
@@ -171,11 +175,45 @@ input::placeholder {
   box-shadow: 0px 8px 14px rgba(62, 107, 224, 0.12);
   color: #ffffff;
 }
+/* modal */
+.modal{
+  --bs-modal-border-color: none;
+  --bs-modal-border-radius: 10px;
+}
+.modal-header,
+.modal-footer {
+  border: none;
+  padding-bottom: 0px;
+}
+.modal-title {
+  font-size: 24px;
+  line-height: 27px;
+  margin-bottom: 20px;
+}
+.icon_label {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--colorGrey);
+  margin-bottom: 10px;
+}
+.icon {
+  border: 1px solid #5051f9;
+  border-radius: 14px;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 18px;
+}
+.icon img {
+  margin-left: -2px;
+}
+.input__modal {
+  margin-bottom: 6px;
+}
 
 @media (max-width: 1020px) {
-	.habbit__day {
+  .habbit__day {
     padding: 20px 20px;
-}
+  }
 }
 
 @media (max-width: 770px) {
