@@ -2,6 +2,7 @@
 
 let habbits = [];
 const HABBIT_KEY = "HABBIT_KEY";
+let globalActiveHabbitId;
 
 // page
 
@@ -78,9 +79,13 @@ function rerenderContent(activeHabbit) {
     const element = document.createElement("div");
     element.classList.add("row", "habbit", "justify-content-between");
     element.innerHTML = `
-      <div class="col-xl-2 col-lg-2 col-12 habbit__day">Day ${Number(index) + 1}</div>
-		  <div class="col-xl-8 col-lg-8 col-9 habbit_commit text-start">${activeHabbit.days[index].comment}</div>
-			<div class="col-xl-2 col-lg-2 col-3 d-flex justify-content-end">
+      <div class="col-xl-2 col-lg-2 col-12 habbit__day">Day ${
+        Number(index) + 1
+      }</div>
+		  <div class="col-xl-8 col-lg-8 col-12 habbit_commit text-start">${
+        activeHabbit.days[index].comment
+      }</div>
+			<div class="col-xl-2 col-lg-2 col-12 d-flex justify-content-end">
 				<button class="btn habbit__delete">
 					<img class="img-fluid" src="./img/delete.svg" alt="delete day ${index + 1}">
 				</button>
@@ -91,13 +96,38 @@ function rerenderContent(activeHabbit) {
 }
 
 function rerender(activeHabbitId) {
+  globalActiveHabbitId = activeHabbitId;
   const activeHabbit = habbits.find((habbit) => habbit.id === activeHabbitId);
-   if (!activeHabbit) {
-     return;
-   }
+  if (!activeHabbit) {
+    return;
+  }
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
   rerenderContent(activeHabbit);
+}
+
+// work with days
+function addDays(event) {
+  const form = event.target;
+  event.preventDefault();
+  const data = new FormData(form);
+  const comment = data.get("comment");
+  form["comment"].classList.remove("error");
+  if (!comment) {
+    form["comment"].classList.add("error");
+  }
+  habbits = habbits.map((habbit) => {
+    if (habbit.id === globalActiveHabbitId) {
+      return {
+        ...habbit,
+        days: habbit.days.concat([{ comment }]),
+      };
+    }
+    return habbit;
+  });
+  form["comment"].value = "";
+  rerender(globalActiveHabbitId);
+  saveData();
 }
 
 // init

@@ -50,10 +50,10 @@
 					<div class="row habbit justify-content-between">
 						<div class="col-xl-2 col-lg-2 col-12 habbit__day"></div>
 						<div class="col-xl-10 col-lg-10 col-12 text-start">
-							<form action="" class="habbit__form">
-								<input type="text" placeholder="Comment" class="input__icon">
+							<form class="habbit__form" onsubmit="addDays(event)">
+								<input name="comment" type="text" placeholder="Comment" class="input__icon">
 								<img class="input__icon_img" src="./img/comment_img.svg" alt="">
-								<button class="btn save__form">Save</button>
+								<button class="btn save__form" type="submit">Save</button>
 							</form>
 						</div>
 					</div>
