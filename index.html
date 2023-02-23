@@ -43,28 +43,17 @@
 					</div>
 						</div>
 					</div>
-					
-					
 				</header>
 				<main>
-					<div>
-						<div class="row habbit justify-content-between">
-							<div class="col-xl-2 col-lg-2 col-12 habbit__day">День 1</div>
-							<div class="col-xl-8 col-lg-8 col-9 habbit_commit text-start">The first set is always the hardest.</div>
-							<div class="col-xl-2 col-lg-2 col-3 d-flex justify-content-end">
-								<button class="btn habbit__delete">
-									<img class="img-fluid" src="./img/delete.svg" alt="delete">
-								</button>
-							</div>
+					<div id="days">
 						</div>
-					</div>
 					<div class="row habbit justify-content-between">
-						<div class="col-xl-2 col-lg-2 col-12 habbit__day">День 2</div>
+						<div class="col-xl-2 col-lg-2 col-12 habbit__day"></div>
 						<div class="col-xl-10 col-lg-10 col-12 text-start">
-							<form action="" class="habbit__form">
-								<input type="text" placeholder="Comment" class="input__icon">
+							<form class="habbit__form" onsubmit="addDays(event)">
+								<input name="comment" type="text" placeholder="Comment" class="input__icon">
 								<img class="input__icon_img" src="./img/comment_img.svg" alt="">
-								<button class="btn save__form">Save</button>
+								<button class="btn save__form" type="submit">Save</button>
 							</form>
 						</div>
 					</div>

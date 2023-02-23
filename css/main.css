@@ -122,6 +122,7 @@ main {
 .habbit_commit {
   font-size: 14px;
   line-height: 16px;
+  word-break: break-all;
 }
 
 .habbit__delete {
@@ -145,6 +146,9 @@ input {
   width: 100%;
   font-size: 14px;
   line-height: 16px;
+}
+input.error {
+  border: 1px solid red;
 }
 input::placeholder {
   color: var(--colorGrey);
@@ -202,6 +206,7 @@ input::placeholder {
   }
   .habbit__form {
     gap: 5px;
+    flex-direction: column;
   }
   .save__form {
     padding: 10px 20px;
