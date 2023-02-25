@@ -21,6 +21,9 @@ const page = {
     modalField: document.querySelector(".modal__form input[name = 'icon']"),
   },
 };
+const myModal = new bootstrap.Modal("#staticBackdrop", {
+  keyboard: false,
+});
 
 // utils
 function loadData() {
@@ -37,7 +40,7 @@ function saveData() {
 
 function resetForm(form, fields) {
   for (const field of fields) {
-    form[field].value = '';
+    form[field].value = "";
   }
 }
 
@@ -54,11 +57,11 @@ function validateAndGetFormData(form, fields) {
   }
   let isValid = true;
   for (const field of fields) {
-    if(!res[field]) {
+    if (!res[field]) {
       isValid = false;
     }
   }
-  if(!isValid) {
+  if (!isValid) {
     return;
   }
   return res;
@@ -135,6 +138,7 @@ function rerender(activeHabbitId) {
   if (!activeHabbit) {
     return;
   }
+  document.location.replace(document.location.pathname + "#" + activeHabbitId);
   rerenderMenu(activeHabbit);
   rerenderHead(activeHabbit);
   rerenderContent(activeHabbit);
@@ -144,7 +148,7 @@ function rerender(activeHabbitId) {
 function addDays(event) {
   event.preventDefault();
   const data = validateAndGetFormData(event.target, ["comment"]);
-  if(!data) {
+  if (!data) {
     return;
   }
   habbits = habbits.map((habbit) => {
@@ -186,22 +190,27 @@ function setIcon(context, icon) {
 }
 
 function addHabbit(event) {
-   event.preventDefault();
-   const data = validateAndGetFormData(event.target, ["name", "icon", "target"]);
-   if (!data) {
-     return;
-   }
-   const maxId = habbits.reduce((acc, habbit) => acc > habbit.id ? acc : habbit.id, 0)
-   habbits.push({
+  event.preventDefault();
+  const data = validateAndGetFormData(event.target, ["name", "icon", "target"]);
+  if (!data) {
+    return;
+  }
+  const maxId = habbits.reduce(
+    (acc, habbit) => (acc > habbit.id ? acc : habbit.id),
+    0
+  );
+  habbits.push({
     id: maxId + 1,
     name: data.name,
     target: data.target,
     icon: data.icon,
-    days: []
-   });
-   resetForm(event.target, ["name", "target"]);
-   saveData();
-   rerender(maxId + 1);
+    days: [],
+  });
+
+  resetForm(event.target, ["name", "target"]);
+  saveData();
+  rerender(maxId + 1);
+  myModal.hide();
 }
 
 // init
@@ -209,5 +218,11 @@ function addHabbit(event) {
   loadData();
 })();
 (() => {
-  rerender(habbits[0].id);
+  const hashId = Number(document.location.hash.replace("#", ""));
+  const urlHabbit = habbits.find((habbit) => habbit.id === hashId);
+  if (urlHabbit) {
+    rerender(urlHabbit.id);
+  } else {
+    rerender(habbits[0].id);
+  }
 })();
