@@ -1,6 +1,6 @@
 # Portfolio habit tracker
 
-[DEMO](https://iuliiaverevkina.github.io/portfolio-site-uber/)
+[DEMO](https://iuliiaverevkina.github.io/habit-tracker/)
 
 For development as the main tools I used:
 * HTML
