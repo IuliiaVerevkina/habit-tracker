@@ -209,7 +209,13 @@ input::placeholder {
 .input__modal {
   margin-bottom: 6px;
 }
-
+.application-subheader {
+	padding: 20px;
+}
+.application-title {
+	font-size: 12px;
+	margin-bottom: 15px;
+}
 @media (max-width: 1020px) {
   .habbit__day {
     padding: 20px 20px;
