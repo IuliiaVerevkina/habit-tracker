@@ -22,7 +22,8 @@
 				<img class="img-fluid logo" src="./img/logo.svg" alt="logo Habbit App">
 				<nav class="menu align-items-center">
 					<div class="menu__list"></div>
-					<button type="button" class="btn menu__add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					<button type="button" class="btn menu__add" data-bs-toggle="modal"
+						data-bs-target="#staticBackdrop">
 						<img class="img-fluid" src="./img/add.svg" alt="add button">
 					</button>
 				</nav>
@@ -30,28 +31,31 @@
 			<div class="col-10 content">
 				<header class="">
 					<div class="row">
-						<div class="col-md-8 col-12"><h1 class="h1"></h1></div>
+						<div class="col-md-8 col-12">
+							<h1 class="h1"></h1>
+						</div>
 						<div class="col-md-4 col-12">
 							<div class="progress__in_bar">
-						<div class="progress__text">
-							<div class="progress__name">Progress</div>
-							<div class="progress__percent">%</div>
-						</div>
-						<div class="progress__bar">
-							<div class="progress__cover_bar"></div>
-						</div>
-					</div>
+								<div class="progress__text">
+									<div class="progress__name">Progress</div>
+									<div class="progress__percent">%</div>
+								</div>
+								<div class="progress__bar">
+									<div class="progress__cover_bar"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</header>
 				<main>
 					<div id="days">
-						</div>
+					</div>
 					<div class="row habbit justify-content-between">
 						<div class="col-xl-2 col-lg-2 col-12 habbit__day"></div>
 						<div class="col-xl-10 col-lg-10 col-12 text-start">
 							<form class="habbit__form" onsubmit="addDays(event)">
-								<input name="comment" type="text" placeholder="Comment" class="input__icon">
+								<input name="comment" type="text" placeholder="Comment"
+									class="input__icon">
 								<img class="input__icon_img" src="./img/comment_img.svg" alt="">
 								<button class="btn save__form" type="submit">Save</button>
 							</form>
@@ -66,7 +70,8 @@
 		<div class="modal-dialog text-center">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<h2 class="modal-title" id="staticBackdropLabel">New habbit</h2>
@@ -85,14 +90,34 @@
 					<form class="modal__form" onsubmit="addHabbit(event)">
 						<input type="text" name="name" placeholder="Add name habbit" class="input__modal">
 						<input type="text" name="icon" placeholder="icon" hidden value="sport">
-						<input type="number" name="target" placeholder="Amount of days" class="input__modal">
+						<input type="number" name="target" placeholder="Amount of days"
+							class="input__modal">
 						<button class="btn save__form" type="submit">Save</button>
 					</form>
 				</div>
-				<!-- <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Understood</button>
-				</div> -->
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticModalWindow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog text-center">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h2 class="modal-title" id="staticBackdropLabel">Hello!</h2>
+					<div class="application-subheader">
+						Habit Tracker welcomes you! It's a simple and easy to use habit tracker, to-do list and self-improvement app that helps
+						you manage your habits, set goals, create to-do lists, and improve your intelligence and productivity.
+					</div>
+					<div class="application-title">
+						Click to start your habits
+					</div>
+					<button class="btn btn-primary modal-close" type="button">START</button>
+				</div>
 			</div>
 		</div>
 	</div>
